@@ -7,11 +7,27 @@
     <title>AOT Wiki</title>
     <link rel="Style sheet" href="src/style.css" />
   </head>
+
   <body>
-    <h1>Intro to Attack on Titan</h1>
-  </body>
-  <body>
-    <div id="app">Attack on Titan</div>
+    <main id="aotWiki">
+      <h1>Intro to Attack on Titan</h1>
+      <form id="search-bar" aria-labelledby="search-bar">
+        <h2 id="">search-bar</h2>
+        <label for="search-bar" class="center page">
+          Search:
+          <input type="text" id="search-bar" name="search" />
+        </label>
+      </form>
+      <dialog id="characters-info-modal">
+        <form id="close-modal" aria-label="close modal" method="dialog">
+          <button>X</button>
+        </form>
+        <section id="characters">
+          <h2></h2>
+        </section>
+      </dialog>
+    </main>
+
     <script type="module" src="src/main.js"></script>
   </body>
 </html>
