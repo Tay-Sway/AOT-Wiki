@@ -17,4 +17,19 @@ export const aotCharAsyncAwait = async () => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-aotCharAsyncAwait();
+
+export const fetchEpisode = async (episodeNumber) => {
+  try {
+    const response = await fetch(
+      `https://api.attackontitanapi.com/episodes/${episodeNumber}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Fetched Data:", data);
+    return data;
+  } catch (error) {
+    console.error("There was an error fetching the data:", error.message);
+  }
+};
