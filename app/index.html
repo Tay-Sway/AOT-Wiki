@@ -11,21 +11,34 @@
   <body>
     <main id="aotWiki">
       <h1>Intro to Attack on Titan</h1>
-      <form id="search-bar" aria-labelledby="search-bar">
-        <h2 id="">search-bar</h2>
-        <label for="search-bar" class="center page">
-          Search:
-          <input type="text" id="search-bar" name="search" />
-        </label>
-      </form>
-      <dialog id="characters-info-modal">
-        <form id="close-modal" aria-label="close modal" method="dialog">
-          <button>X</button>
-        </form>
-        <section id="characters">
-          <h2></h2>
-        </section>
-      </dialog>
+      <section id="main-characters">
+        <div id="eren-yeager"></div>
+        <div id="mikasa-ackerman"></div>
+        <div id="armin-arlert"></div>
+      </section>
+      <!-- <section id="popular-characters"></section> -->
+      <section id="walls-of-paradis-island" ari>
+        <div id="wall-maria"></div>
+        <div id="wall-rose"></div>
+        <div id="wall-sina"></div>
+      </section>
+      <section id="militaryDivisons">
+        <div id="training-corps"></div>
+        <div id="scout-regiment"></div>
+        <div id="garrison-regiment"></div>
+        <div id="military-police"></div>
+      </section>
+      <!-- <section id="Titans"></section> -->
+      <section id="all-characters">
+        <div id="search">
+          <form>
+            <h2 id="">search-bar</h2>
+            <label for="search-bar">Search: </label>
+            <input type="text" id="search-bar" name="search" />
+          </form>
+        </div>
+        <div id="display-characters"></div>
+      </section>
     </main>
 
     <script type="module" src="src/main.js"></script>
