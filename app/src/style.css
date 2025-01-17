@@ -1,0 +1,22 @@
+body {
+  background-color: rgb(139, 76, 76);
+  color: white;
+}
+
+#main-characters {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#walls-of-paradis-island {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#militaryDivisons {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}
