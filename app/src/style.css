@@ -4,19 +4,26 @@ body {
 }
 
 #main-characters {
-  display: flexbox;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-#walls-of-paradis-island {
-  display: flexbox;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-#militaryDivisons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: flex-end;
   margin: 2rem auto;
 }
+/*  */
+#militaryDivisons {
+  display: flex;
+  flex-direction: row;
+
+  margin: 2rem auto;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* #walls-of-paradis-island {
+  display: flexbox;
+  flex-direction: row;
+  justify-content: space-around;
+} */
