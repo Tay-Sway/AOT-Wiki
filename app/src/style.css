@@ -5,16 +5,27 @@ body {
 
 #main-characters {
   display: flex;
-  flex-direction: row;
+  flex-direction: center;
+  justify-content: space-evenly;
   align-items: flex-end;
   margin: 2rem auto;
+}
+.main-character {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.mc-info {
+  display: none;
 }
 /*  */
 #militaryDivisons {
   display: flex;
   flex-direction: row;
-
+  justify-content: space-evenly;
   margin: 2rem auto;
+  padding: 0;
 }
 
 #header {

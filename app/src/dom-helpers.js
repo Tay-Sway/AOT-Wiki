@@ -64,3 +64,34 @@ export const introBio = () => {
   page.textContent =
     " Welcome to Attack on Titan Wiki. All of the most important facts you need to know about the show!";
 };
+
+//
+
+// export const testModal = document.querySelector("dialog");
+// export const showButton = document.querySelector("dialog + button");
+// export const closeButton = document.querySelector("dialog button");
+
+// //
+// showButton.addEventListener("click", () => {
+//   dialog.showModal();
+// });
+// closeButton.addEventListener("click", () => {
+//   dialog.close();
+// });
+
+// event listeners for buttons
+export const eyButton = () => {
+  let btn = document.querySelector("#ey-button");
+  let flag = false;
+
+  btn.addEventListener("click", () => {
+    flag = !flag;
+    console.log(flag);
+    let info = document.querySelector("#ey-info");
+    if (flag === true) {
+      info.style.display = "block";
+    } else {
+      info.style.display = "none";
+    }
+  });
+};

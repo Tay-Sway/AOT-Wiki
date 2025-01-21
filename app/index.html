@@ -7,71 +7,84 @@
     <title>AOT Wiki</title>
     <link rel="Stylesheet" href="src/style.css" />
   </head>
-  <body>
+
     <main id="aotWiki">
       <section id="header">
         <h1>Intro to Attack on Titan</h1>
         <p id="bio"></p>
       </section>
       <h2>Main Character</h2>
-      <!-- style="background-color: yellow" -->
-
-      <section id="main-characters">
-        <div id="eren-yeager">
-          ey / pic
-          <img id="eren-yeager-img" src alt />
-          <a>hello</a>
+      <section id="main-characters" style="background-color: rgb(7, 7, 6)">
+        <div class="main-character" id="eren-yeager" >
+          <div class="mc-Name">Eren Yeager</div> 
+          <div><img id="eren-yeager-img" src alt /></div>
+          <div><button id="ey-button">More Info</button></div>
+          <div class="mc-info" id="ey-info">info</div>
         </div>
 
         <!--  -->
-        <div id="mikasa-ackermann">
-          ma / pic
-          <img id="mikasa-ackermann-img" src="" alt="" />
+        <div class="main-character" id="mikasa-ackermann">
+          <div>Mikasa Ackermann</div>
+          <div><img id="mikasa-ackermann-img" src="" alt="" /></div>
+         <div><button id="ma-button">More Info</button></div>
+         <div class="mc-info" id="ma-info"> info</div>
         </div>
+
         <!--  -->
-        <div id="armin-arlert">
-          AA/ pic
-          <img id="armin-arlert-img" src alt />
+        <div class="main-character" id="armin-arlert">
+          <div>Armin Arlert</div>
+          <div><img id="armin-arlert-img" src alt /></div>
+          <div><button id="aa=button">More Info</button></div>
+          <div class="mc-info" id="aa-info">info</div>
         </div>
       </section>
+
       <!-- <section id="popular-characters"></section> -->
+
       <h2>Miliary Branches</h2>
-      <section id="militaryDivisons">
+      <section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
         <div id="training-corps">
           training
           <img id="training-cadet-img" src alt />
         </div>
         <div id="scout-regiment">
-          scout
+          garrison
           <img id="scout-img" src alt />
         </div>
         <div id="garrison-regiment">
-          garrison
+           police
           <img id="garrison-img" src alt />
         </div>
         <div id="military-police">
-          police
+          scout 
           <img id="police-img" src alt />
         </div>
-      </section>
-      <!-- <section id="walls-of-paradis-island">
-        <h2>Walls of</h2>
-        <div id="wall-maria">maria</div>
-        <div id="wall-rose">rose</div>
-        <div id="wall-sina">sina</div>
-      </section> -->
-      <!-- <section id="Titans"></section> -->
-      <section id="all-characters">
-        <div id="search">
-          <form>
-            <h2 id="character-search">Character Directory</h2>
-            <label for="search-bar">Search: </label>
-            <input type="text" id="search-bar" name="search" value="Name" />
-          </form>
+        </section>
+           <fieldset > 
+            <form>
+              <h2 id="searchName">Search for a Character</h2>
+              <label for="search-bar">Name: </label>
+              <input type="text" id="search-bar" name="search"  />
+              <button type="submit">Search</button>
+            </form>
+          </fieldset>
+    <dialog id="selected-character-modal">
+      <form id="close-modal" aria-label="Close modal" method="dialog">
+        <button>X</button>
+      </form>
+      <div></div>
+    </dialog>
+
+    <section id="allCharacters">
+      <h2>Character Directory</h2>
+      <div id="characters-container">
+        <div class="character-card">
+          <h3 class="character-name"></h3>
+          <img src alt >
         </div>
-        <h2>All Char</h2>
-        <div id="display-characters"></div>
-      </section>
+      </div>
+    </section>
+          
     </main>
 
     <script type="module" src="src/main.js"></script>

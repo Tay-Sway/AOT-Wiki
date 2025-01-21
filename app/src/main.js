@@ -17,6 +17,10 @@ import {
   maImg,
   eyImg,
   introBio,
+  // testModal,
+  // showButton,
+  // closeButton,
+  eyButton,
 } from "./dom-helpers";
 const main = () => {
   // fullList();
@@ -34,5 +38,9 @@ const main = () => {
   maImg(1);
   eyImg(188);
   introBio();
+  // testModal();
+  // showButton();
+  // closeButton();
+  eyButton();
 };
 main();
