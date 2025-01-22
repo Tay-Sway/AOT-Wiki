@@ -65,38 +65,37 @@
         <div id="military-police" class="military-names">
           <div >Military Police Brigade </div>
           <img id="police-img" src alt />
-          <div><button data-organizations-id="9" class="more-info-btn-military">More info</button></div>
+          <div><button data-organizations-id="10" class="more-info-btn-military">More info</button></div>
         </div>
       </section>
+      <!--  -->
+      <dialog id="selected-character-modal">
+        <form id="close-modal" aria-label="Close modal" method="dialog">
+          <button>X</button>
+        </form>
+        <div id="selected-character-modal-info">
+          info
+        </div>
+        <!-- <ul id="listInfo"></ul> -->
+      </dialog>
+      <!--  -->
+      
       <!--  search bar for charters -->
            <fieldset > 
             <form>
               <h2 id="searchName">Search for a Character</h2>
               <label for="search-bar">Name: </label>
               <input type="text" id="search-bar" name="search" required />
-  
               <button type="submit">Search</button>
             </form>
-          </fieldset>
-    <!--  -->
-    <dialog id="selected-character-modal">
-      <form id="close-modal" aria-label="Close modal" method="dialog">
-        <button>X</button>
-      </form>
-      <div id="selected-character-modal-info">
-        info
-      </div>
-      <!-- <ul id="listInfo"></ul> -->
-    </dialog>
-    <!--  -->
-
+         
     <section id="allCharacters">
-      <h2>Character Directory</h2>
+      <h2>Character Directory:</h2>
       <div id="characters-container">
         
       </div>
     </section>
-          
+           </fieldset>
     </main>
 
     <script type="module" src="src/main.js"></script>

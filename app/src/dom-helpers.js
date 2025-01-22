@@ -108,7 +108,7 @@ document
     for (let i = 0; i < characterData.results.length; i++) {
       if (event.target.dataset.organizationsId == characterData.results[i].id) {
         let charInfo = document.querySelector("#selected-character-modal-info");
-        charInfo.textContent = `${characterData.results[i].name}`;
+        charInfo.textContent = `${characterData.results[i].name},${characterData.results[i].occupations},${characterData.results[i].affiliation},${characterData.results[i].debut}`;
         break;
       }
     }
