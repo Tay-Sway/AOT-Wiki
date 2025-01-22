@@ -45,3 +45,82 @@
 //       </section> -->
 //       <!-- <section id="Titans"></section> -->
 // data-toggle="modal" data-target="#modalOpen"
+
+//xport const eyButton = () => {
+//     let btn = document.querySelector("#ey-button");
+//     let flag = false;
+
+//     btn.addEventListener("click", () => {
+//       let modal = document.querySelector("#selected-character-modal");
+//       modal.showModal();
+
+//       let modalInfo = document.querySelector("#selected-character-modal-info");
+//       modalInfo.textContent = "eren Y";
+
+//       flag = !flag;
+//       console.log(flag);
+//       let info = document.querySelector("#ey-info");
+//       if (flag === true) {
+//         info.style.display = "block";
+//       } else {
+//         info.style.display = "none";
+//       }
+//     });
+//   };
+
+// export const testModal = document.querySelector("dialog");
+// export const showButton = document.querySelector("dialog + button");
+// export const closeButton = document.querySelector("dialog button");
+
+// //
+// showButton.addEventListener("click", () => {
+//   dialog.showModal();
+// });
+// closeButton.addEventListener("click", () => {
+//   dialog.close();
+// });
+
+// event listeners for buttons
+//button for eren button
+
+// export const eyButton = () => {
+//   let btn = document.querySelector("#ey-button");
+
+//   btn.addEventListener("click", () => {
+
+//     let modalInfo = document.querySelector("#selected-character-modal-info");
+//     modalInfo.textContent = "eren Y";
+//   });
+// };
+// // button for mikasa
+// export const maButton = () => {
+//   let btn = document.querySelector("#ma-button");
+//   let flag = false;
+
+//   btn.addEventListener("click", () => {
+//     flag = !flag;
+//     console.log(flag);
+//     let info = document.querySelector("#ma-info");
+//     if (flag === true) {
+//       info.style.display = "block";
+//     } else {
+//       info.style.display = "none";
+//     }
+//   });
+// };
+// // button for armin
+// export const aaButton = () => {
+//   let btn = document.querySelector("#aa-button");
+//   let flag = false;
+
+//   btn.addEventListener("click", () => {
+//     flag = !flag;
+//     console.log(flag);
+//     let info = document.querySelector("#aa-info");
+//     if (flag === true) {
+//       info.style.display = "block";
+//     } else {
+//       info.style.display = "none";
+//     }
+//   });
+// };

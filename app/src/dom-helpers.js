@@ -2,6 +2,7 @@ import {
   fullAotCharactersList,
   militaryImgs,
   mainCharactersImg,
+  fetchCharacter,
   //   fullList,
 } from "./fetch-helpers";
 
@@ -16,21 +17,21 @@ export const trainingCadetImg = () => {
 
 export const scoutRegimentImg = () => {
   const scoutImg = document.querySelector("#scout-img");
-  const url = organizations.results[3].img;
+  const url = organizations.results[14].img;
   let fixedUrl = url.split("/revision")[0];
   scoutImg.src = fixedUrl;
 };
 
 export const garrisonRegimentImg = () => {
   const garrisonImg = document.querySelector("#garrison-img");
-  const url = organizations.results[9].img;
+  const url = organizations.results[3].img;
   let fixedUrl = url.split("/revision")[0];
   garrisonImg.src = fixedUrl;
 };
 
 export const militaryPoliceImg = () => {
   const mpImg = document.querySelector("#police-img");
-  const url = organizations.results[14].img;
+  const url = organizations.results[9].img;
   let fixedUrl = url.split("/revision")[0];
   mpImg.src = fixedUrl;
 };
@@ -62,36 +63,29 @@ export const eyImg = () => {
 export const introBio = () => {
   const page = document.querySelector("#bio");
   page.textContent =
-    " Welcome to Attack on Titan Wiki. All of the most important facts you need to know about the show!";
+    " Welcome to Attack on Titan Wiki.  All of the most important facts you need to know about the show!";
 };
 
-//
+// this is an event listener for the button
 
-// export const testModal = document.querySelector("dialog");
-// export const showButton = document.querySelector("dialog + button");
-// export const closeButton = document.querySelector("dialog button");
+document
+  .querySelector("#main-characters")
+  .addEventListener("click", async (event) => {
+    console.log(event);
 
-// //
-// showButton.addEventListener("click", () => {
-//   dialog.showModal();
-// });
-// closeButton.addEventListener("click", () => {
-//   dialog.close();
-// });
-
-// event listeners for buttons
-export const eyButton = () => {
-  let btn = document.querySelector("#ey-button");
-  let flag = false;
-
-  btn.addEventListener("click", () => {
-    flag = !flag;
-    console.log(flag);
-    let info = document.querySelector("#ey-info");
-    if (flag === true) {
-      info.style.display = "block";
-    } else {
-      info.style.display = "none";
+    if (!event.target.matches(".more-info-btn")) {
+      return;
     }
+
+    console.log(event.target.dataset.characterId);
+
+    const characterData = await fetchCharacter(
+      event.target.dataset.characterId
+    );
+
+    let charInfo = document.querySelector("#selected-character-modal-info");
+    charInfo.textContent = `${characterData.name}, ${characterData.occupation}`;
+
+    let modal = document.querySelector("#selected-character-modal");
+    modal.showModal();
   });
-};

@@ -15,27 +15,25 @@
       </section>
       <h2>Main Character</h2>
       <section id="main-characters" style="background-color: rgb(7, 7, 6)">
+        
         <div class="main-character" id="eren-yeager" >
           <div class="mc-Name">Eren Yeager</div> 
           <div><img id="eren-yeager-img" src alt /></div>
-          <div><button id="ey-button">More Info</button></div>
-          <div class="mc-info" id="ey-info">info</div>
+          <div><button data-character-id="188" class="more-info-btn" id="ey-button">More Info</button></div>
         </div>
 
         <!--  -->
         <div class="main-character" id="mikasa-ackermann">
-          <div>Mikasa Ackermann</div>
+          <div class="mc-Name">Mikasa Ackermann</div>
           <div><img id="mikasa-ackermann-img" src="" alt="" /></div>
-         <div><button id="ma-button">More Info</button></div>
-         <div class="mc-info" id="ma-info"> info</div>
+         <div><button data-character-id="2" class="more-info-btn" id="ma-button">More Info</button></div>
         </div>
 
         <!--  -->
         <div class="main-character" id="armin-arlert">
-          <div>Armin Arlert</div>
+          <div class="mc-Name">Armin Arlert</div>
           <div><img id="armin-arlert-img" src alt /></div>
-          <div><button id="aa=button">More Info</button></div>
-          <div class="mc-info" id="aa-info">info</div>
+          <div><button data-character-id="1" class="more-info-btn" id="aa-button">More Info</button></div>
         </div>
       </section>
 
@@ -43,23 +41,34 @@
 
       <h2>Miliary Branches</h2>
       <section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
-        <div id="training-corps">
-          training
-          <img id="training-cadet-img" src alt />
+        <!-- training -->
+        <div id="training-corps" class="military-names">
+         <div > Training Corps</div>
+        <div><img id="training-cadet-img" src alt /></div>
+        <div><button class="more-info-btn">More Info</button></div>
         </div>
-        <div id="scout-regiment">
-          garrison
-          <img id="scout-img" src alt />
-        </div>
-        <div id="garrison-regiment">
-           police
+          
+        <!-- scout regiment -->
+        <div id="scout-regiment" class="military-names">
+           <div > Survey Corps</div>
+           <div><img id="scout-img" src alt /> </div>
+           <div><button class="more-info-btn">More Info</button></div>
+          </div>
+          
+        <!-- garrison  -->
+        <div id="garrison-regiment" class="military-names">
+            <div >Garrison Regiment</div>
           <img id="garrison-img" src alt />
+          <div><button>More Info</button></div>
         </div>
-        <div id="military-police">
-          scout 
+        <!-- police  -->
+        <div id="military-police" class="military-names">
+          <div >Military Police Brigade </div>
           <img id="police-img" src alt />
+          <div><button>More info</button></div>
         </div>
-        </section>
+      </section>
+      <!--  search bar for charters -->
            <fieldset > 
             <form>
               <h2 id="searchName">Search for a Character</h2>
@@ -68,20 +77,21 @@
               <button type="submit">Search</button>
             </form>
           </fieldset>
+    <!--  -->
     <dialog id="selected-character-modal">
       <form id="close-modal" aria-label="Close modal" method="dialog">
         <button>X</button>
       </form>
-      <div></div>
+      <div id="selected-character-modal-info">
+        info
+      </div>
     </dialog>
+    <!--  -->
 
     <section id="allCharacters">
       <h2>Character Directory</h2>
       <div id="characters-container">
-        <div class="character-card">
-          <h3 class="character-name"></h3>
-          <img src alt >
-        </div>
+        
       </div>
     </section>
           

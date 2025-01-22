@@ -11,10 +11,29 @@ export const fullAotCharactersList = async () => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-// to fetch all the char
-export async function fetchNextPage() {
+//
+// this fetch is used to access all of the eps in aot
+export const fetchCharacter = async (characterNumber) => {
   try {
-    const response = await fetch("https://api.attackontitanapi.com/characters");
+    const response = await fetch(
+      `https://api.attackontitanapi.com/characters/${characterNumber}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log("Fetched Data:", data);
+    return data;
+  } catch (error) {
+    console.error("There was an error fetching the data:", error.message);
+  }
+};
+// to fetch all the char
+export async function fetchCharactersFromPage(pageNumber) {
+  try {
+    const response = await fetch(
+      `https://api.attackontitanapi.com/characters?page=${pageNumber}`
+    );
     const data = await response.json();
     console.log(data);
     return data;
