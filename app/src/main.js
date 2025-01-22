@@ -7,7 +7,7 @@ import {
   // fullList,
 } from "./fetch-helpers";
 //
-
+//
 import {
   trainingCadetImg,
   scoutRegimentImg,
@@ -18,6 +18,9 @@ import {
   eyImg,
   introBio,
 } from "./dom-helpers";
+//
+// Event listeners for the modal
+// import { testButton } from "./modal-render-helpers";
 
 //
 const main = () => {
@@ -36,5 +39,6 @@ const main = () => {
   maImg(1);
   eyImg(188);
   introBio();
+  // testButton();
 };
 main();

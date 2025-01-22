@@ -82,10 +82,40 @@ document
     const characterData = await fetchCharacter(
       event.target.dataset.characterId
     );
+    console.log(characterData);
 
     let charInfo = document.querySelector("#selected-character-modal-info");
-    charInfo.textContent = `${characterData.name}, ${characterData.occupation}`;
+    charInfo.textContent = `${characterData.name}, ${characterData.alias},${characterData.age},${characterData.status},${characterData.occupation},${characterData.roles}, ${characterData.episodes[0]} `;
 
     let modal = document.querySelector("#selected-character-modal");
     modal.showModal();
   });
+
+// search button // innerHTML = "" = loads the pages
+// event listener for military Branches
+
+document
+  .querySelector("#militaryDivisons")
+  .addEventListener("click", async (event) => {
+    console.log(event);
+    if (!event.target.matches(".more-info-btn-military")) {
+      return;
+    }
+    console.log(event.target.dataset.organizationsId);
+
+    const characterData = await militaryImgs();
+    console.log(characterData);
+    for (let i = 0; i < characterData.results.length; i++) {
+      if (event.target.dataset.organizationsId == characterData.results[i].id) {
+        let charInfo = document.querySelector("#selected-character-modal-info");
+        charInfo.textContent = `${characterData.results[i].name}`;
+        break;
+      }
+    }
+
+    let modal = document.querySelector("#selected-character-modal");
+    modal.showModal();
+  });
+
+//this is the list of the characters + event listener so clicking name will open modal.
+document.querySelector("#characters-container");

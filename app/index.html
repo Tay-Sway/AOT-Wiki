@@ -39,33 +39,33 @@
 
       <!-- <section id="popular-characters"></section> -->
 
-      <h2>Miliary Branches</h2>
+      <h2>Military Branches</h2>
       <section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
         <!-- training -->
         <div id="training-corps" class="military-names">
          <div > Training Corps</div>
         <div><img id="training-cadet-img" src alt /></div>
-        <div><button class="more-info-btn">More Info</button></div>
+        <div><button data-organizations-id="3" class="more-info-btn-military">More Info</button></div>
         </div>
           
         <!-- scout regiment -->
         <div id="scout-regiment" class="military-names">
            <div > Survey Corps</div>
            <div><img id="scout-img" src alt /> </div>
-           <div><button class="more-info-btn">More Info</button></div>
+           <div><button data-organizations-id="15" class="more-info-btn-military">More Info</button></div>
           </div>
           
         <!-- garrison  -->
         <div id="garrison-regiment" class="military-names">
             <div >Garrison Regiment</div>
           <img id="garrison-img" src alt />
-          <div><button>More Info</button></div>
+          <div><button data-organizations-id="4" class="more-info-btn-military">More Info</button></div>
         </div>
         <!-- police  -->
         <div id="military-police" class="military-names">
           <div >Military Police Brigade </div>
           <img id="police-img" src alt />
-          <div><button>More info</button></div>
+          <div><button data-organizations-id="9" class="more-info-btn-military">More info</button></div>
         </div>
       </section>
       <!--  search bar for charters -->
@@ -73,7 +73,8 @@
             <form>
               <h2 id="searchName">Search for a Character</h2>
               <label for="search-bar">Name: </label>
-              <input type="text" id="search-bar" name="search"  />
+              <input type="text" id="search-bar" name="search" required />
+  
               <button type="submit">Search</button>
             </form>
           </fieldset>
@@ -85,6 +86,7 @@
       <div id="selected-character-modal-info">
         info
       </div>
+      <!-- <ul id="listInfo"></ul> -->
     </dialog>
     <!--  -->
 
