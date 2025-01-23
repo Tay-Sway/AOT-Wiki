@@ -3,6 +3,9 @@ import {
   militaryImgs,
   mainCharactersImg,
   fetchCharacter,
+  characterListPage,
+
+  //   fullList,
 } from "./fetch-helpers";
 
 const organizations = await militaryImgs();
@@ -182,9 +185,37 @@ closeModalButton.addEventListener("click", () => {
   modal.close(); // Close the modal
 });
 
-// document.querySelector;
+// create list for pages
 
-// export const hideModal = (e) => {
-//   // console.log("test");
-//   document.querySelector("dialog").close();
-// };
+export const renderPageList = (pageData, pageListElementId) => {
+  const pageList = document.getElementById(pageListElementId);
+  for (let i = 0; i < pageData.results.length; i++) {
+    console.log(pageData.results[i]);
+    let createLi = document.createElement("li");
+    createLi.textContent = pageData.results[i].name;
+
+    pageList.append(createLi);
+  }
+};
+
+export const openTabs = (event) => {
+  const tabName = event.target.id;
+  const pageName = `page${tabName.slice(3)}`;
+  console.log(pageName);
+  let tabContent = document.getElementsByClassName("tabContent");
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+  }
+  let tabLinks = document.getElementsByClassName("tabLinks");
+  for (let i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+  }
+  document.getElementById(pageName).style.display = "block";
+  event.currentTarget.className += " active";
+};
+
+// these are event listeners for opening the tabs
+const tabButtons = document.querySelectorAll("button.tabLinks");
+tabButtons.forEach((button) => {
+  button.addEventListener("click", openTabs);
+});
