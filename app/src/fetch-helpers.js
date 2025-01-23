@@ -11,23 +11,8 @@ export const fullAotCharactersList = async () => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-// this is the fetch for the search bar
-// export const searchCharacter = async (name) => {
-//   try {
-//     const response = await fetch(`https://api.attackontitanapi.com/characters${}`);
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! status: ${response.status}`);
-//     }
-//     const data = await response.json();
-//     console.log("Fetched Data:", data);
-//     return data;
-//   } catch (error) {
-//     console.error("There was an error fetching the data:", error.message);
-//   }
-// };
 
-//
-// this fetch is used to access all of the eps in aot
+// Fetch for single character info
 export const fetchCharacter = async (characterNumber) => {
   try {
     const response = await fetch(
@@ -43,20 +28,22 @@ export const fetchCharacter = async (characterNumber) => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-// to fetch all the char
-// export async function fetchCharactersFromPage(pageNumber) {
-//   try {
-//     const response = await fetch(
-//       `https://api.attackontitanapi.com/characters?page=${pageNumber}`
-//     );
-//     const data = await response.json();
-//     console.log(data);
-//     return data;
-//   } catch (error) {
-//     console.error("Error fetching the next page:", error);
-//   }
-// }
-// this fetch is used to access all of the eps in aot
+
+// Fetch all characters from a specific page
+export async function fetchCharactersFromPage(pageNumber) {
+  try {
+    const response = await fetch(
+      `https://api.attackontitanapi.com/characters?page=${pageNumber}`
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching the next page:", error);
+  }
+}
+
+// Fetch specific episode info
 export const fetchEpisode = async (episodeNumber) => {
   try {
     const response = await fetch(
@@ -72,7 +59,8 @@ export const fetchEpisode = async (episodeNumber) => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-// this a fetch of the api organizations that hold the imgs that will be used for military branches
+
+// Fetch military organization images
 export const militaryImgs = async () => {
   try {
     const response = await fetch(
@@ -88,8 +76,8 @@ export const militaryImgs = async () => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
-// this fetch is for a pic of eren page 11, = [7]
-// find out how u can add fetch that will access all the pages an not just the the first one
+
+// Fetch main characters image (page 10)
 export const mainCharactersImg = async () => {
   try {
     const response = await fetch(
@@ -105,6 +93,9 @@ export const mainCharactersImg = async () => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
+
+// the original fetch only has only get the first 20 characters,
+//  going to make a fetch for all 11 pages and make one big function at the end to access all the pages and characters.
 
 // this is a fetch for the search bar
 

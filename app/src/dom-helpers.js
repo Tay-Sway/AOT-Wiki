@@ -9,7 +9,8 @@ import {
 } from "./fetch-helpers";
 
 const organizations = await militaryImgs();
-// these functions are being made to display the images of the main Military branches
+
+// Functions to display images of main military branches
 export const trainingCadetImg = () => {
   const cadetImg = document.querySelector("#training-cadet-img");
   const url = organizations.results[2].img;
@@ -37,8 +38,8 @@ export const militaryPoliceImg = () => {
   let fixedUrl = url.split("/revision")[0];
   mpImg.src = fixedUrl;
 };
-//
-// these functions are going to be displaying the images of the main characters of aot , eren, armin, mikasa
+
+// Functions to display images of main characters (Eren, Mikasa, Armin)
 const mainCharacters = await fullAotCharactersList();
 const lastMain = await mainCharactersImg();
 
@@ -55,6 +56,7 @@ export const maImg = () => {
   let fixedUrl = url.split("/revision")[0];
   Img.src = fixedUrl;
 };
+
 export const eyImg = () => {
   const Img = document.querySelector("#eren-yeager-img");
   const url = lastMain.results[7].img;
@@ -62,14 +64,12 @@ export const eyImg = () => {
   Img.src = fixedUrl;
 };
 
+// Placeholder function for intro bio (currently inactive)
 export const introBio = () => {
   const page = document.querySelector("#bio");
-  page.textContent =
-    " Welcome to Attack on Titan Wiki.  All of the most important facts you need to know about the show!";
 };
 
-// this is an event listener for the button
-
+// Event listener for Main Characters button
 document
   .querySelector("#main-characters")
   .addEventListener("click", async (event) => {
@@ -93,9 +93,7 @@ document
     modal.showModal();
   });
 
-// search button // innerHTML = "" = loads the pages
-// event listener for military Branches
-
+// Event listener for Military Branches button
 document
   .querySelector("#militaryDivisons")
   .addEventListener("click", async (event) => {
@@ -118,8 +116,87 @@ document
     let modal = document.querySelector("#selected-character-modal");
     modal.showModal();
   });
-//
-//
+
+// Search event listener
+export const handleSearch = () => {
+  const searchForm = document.querySelector("#search-form");
+  searchForm.addEventListener("submit", async (event) => {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    const searchInput = document
+      .querySelector("#search-bar")
+      .value.toLowerCase();
+    const charactersContainer = document.querySelectorAll(".main-character");
+
+    let found = false;
+
+    for (const character of charactersContainer) {
+      const charName = character
+        .querySelector(".mc-Name")
+        .textContent.toLowerCase();
+
+      if (charName.includes(searchInput)) {
+        const button = character.querySelector(".more-info-btn");
+        const characterId = button.dataset.characterId;
+
+        try {
+          const characterData = await fetchCharacter(characterId);
+          console.log(characterData);
+
+          // Populate modal with character data
+          const charInfo = document.querySelector(
+            "#selected-character-modal-info"
+          );
+          charInfo.textContent = `${characterData.name}, ${characterData.alias}, ${characterData.age}, ${characterData.status}, ${characterData.occupation}, ${characterData.roles}, ${characterData.episodes[0]}`;
+
+          // Show modal
+          const modal = document.querySelector("#selected-character-modal");
+          modal.showModal(); // Ensure the modal is displayed
+
+          found = true;
+          break;
+        } catch (error) {
+          console.error("Error fetching character data:", error);
+          alert("Failed to load character data. Please try again.");
+        }
+      }
+    }
+
+    if (!found) {
+      alert("Character not found!");
+    }
+  });
+};
+
+const searchForm = document.querySelector("form");
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // This prevents the page from refreshing
+  handleSearch();
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // existing functions like handleSearch, etc.
+
+//   // Modal close functionality
+const closeModalButton = document.querySelector("#close-modal-button");
+closeModalButton.addEventListener("click", () => {
+  const modal = document.querySelector("dialog");
+  console.log("I was clicked");
+  modal.close(); // Close the modal
+});
+
+// create list for pages
+
+export const renderPageList = (pageData, pageListElementId) => {
+  const pageList = document.getElementById(pageListElementId);
+  for (let i = 0; i < pageData.results.length; i++) {
+    console.log(pageData.results[i]);
+    let createLi = document.createElement("li");
+    createLi.textContent = pageData.results[i].name;
+
+    pageList.append(createLi);
+  }
+};
 
 export const openTabs = (event) => {
   const tabName = event.target.id;
@@ -142,22 +219,3 @@ const tabButtons = document.querySelectorAll("button.tabLinks");
 tabButtons.forEach((button) => {
   button.addEventListener("click", openTabs);
 });
-
-//this is the list of the characters + event listener so clicking name will open modal.
-// document.querySelector("#characters-container");
-
-//
-// event
-
-// create list for pages
-
-export const renderPageList = (pageData, pageListElementId) => {
-  const pageList = document.getElementById(pageListElementId);
-  for (let i = 0; i < pageData.results.length; i++) {
-    console.log(pageData.results[i]);
-    let createLi = document.createElement("li");
-    createLi.textContent = pageData.results[i].name;
-
-    pageList.append(createLi);
-  }
-};

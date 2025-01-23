@@ -42,6 +42,7 @@ const main = async () => {
 
   // organizationsImg();
   trainingCadetImg();
+  // organizationsImg();
   militaryImgs();
   scoutRegimentImg();
   garrisonRegimentImg();
@@ -60,4 +61,5 @@ const main = async () => {
   renderPageList(secondPage, "pageTwoListNames");
   renderPageList(thirdPage, "pageThreeListNames");
 };
+
 main();

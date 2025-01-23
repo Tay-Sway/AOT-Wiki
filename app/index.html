@@ -2,39 +2,62 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AOT Wiki</title>
     <link rel="Stylesheet" href="src/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/style.css" />
   </head>
-
+  <body>
+    <div id="rotten-tomatoes">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Rotten_Tomatoes.svg" alt="Rotten Tomatoes" />
+      <span>96%</span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Rotten_Tomatoes_positive_audience.svg" alt="Popcorn Meter" />
+      <span>95%</span>
+    </div>
+  
+    </main>
+  </body>
+  
     <main id="aotWiki">
       <section id="header">
-        <h1>Intro to Attack on Titan</h1>
+        <h1>Welcome to Attack on Titan Wiki!</h1>
         <p id="bio"></p>
       </section>
-      <h2>Main Character</h2>
+      <h2>Main Characters</h2>
       <section id="main-characters" style="background-color: rgb(7, 7, 6)">
-        
-        <div class="main-character" id="eren-yeager" >
-          <div class="mc-Name">Eren Yeager</div> 
+        <div class="main-character" id="eren-yeager">
+          <div class="mc-Name">Eren Yeager</div>
           <div><img id="eren-yeager-img" src alt /></div>
-          <div><button data-character-id="188" class="more-info-btn" id="ey-button">More Info</button></div>
+          <div>
+            <button
+              data-character-id="188"
+              class="more-info-btn"
+              id="ey-button"
+            >
+              More Info
+            </button>
+          </div>
         </div>
 
-        <!--  -->
         <div class="main-character" id="mikasa-ackermann">
           <div class="mc-Name">Mikasa Ackermann</div>
           <div><img id="mikasa-ackermann-img" src="" alt="" /></div>
-         <div><button data-character-id="2" class="more-info-btn" id="ma-button">More Info</button></div>
+          <div>
+            <button data-character-id="2" class="more-info-btn" id="ma-button">
+              More Info
+            </button>
+          </div>
         </div>
 
-        <!--  -->
         <div class="main-character" id="armin-arlert">
           <div class="mc-Name">Armin Arlert</div>
           <div><img id="armin-arlert-img" src alt /></div>
-          <div><button data-character-id="1" class="more-info-btn" id="aa-button">More Info</button></div>
+          <div>
+            <button data-character-id="1" class="more-info-btn" id="aa-button">
+              More Info
+            </button>
+          </div>
         </div>
       </section>
 
@@ -42,14 +65,12 @@
 
       <h2>Military Branches</h2>
       <section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
-        <!-- training -->
         <div id="training-corps" class="military-names">
          <div > Training Corps</div>
         <div><img id="training-cadet-img" src alt /></div>
         <div><button data-organizations-id="3" class="more-info-btn-military">More Info</button></div>
         </div>
-          
-        <!-- scout regiment -->
+
         <div id="scout-regiment" class="military-names">
            <div > Survey Corps</div>
            <div><img id="scout-img" src alt /> </div>
@@ -58,37 +79,35 @@
           
         <!-- garrison  -->
         <div id="garrison-regiment" class="military-names">
-            <div >Garrison Regiment</div>
+          <div>Garrison Regiment</div>
           <img id="garrison-img" src alt />
           <div><button data-organizations-id="4" class="more-info-btn-military">More Info</button></div>
         </div>
-        <!-- police  -->
+
         <div id="military-police" class="military-names">
-          <div >Military Police Brigade </div>
+          <div>Military Police Brigade</div>
           <img id="police-img" src alt />
           <div><button data-organizations-id="10" class="more-info-btn-military">More info</button></div>
         </div>
       </section>
       <!--  -->
       <dialog id="selected-character-modal">
-        <form id="close-modal" aria-label="Close modal" method="dialog">
-          <button>X</button>
-        </form>
-        <div id="selected-character-modal-info">
-          info
-        </div>
-        <!-- <ul id="listInfo"></ul> -->
+        <div id="selected-character-modal-info"></div>
+        <button id="close-modal-button">X</button>
       </dialog>
+      
       <!--  -->
       
       <!--  search bar for charters -->
-           <fieldset > 
-            <form>
-              <h2 id="searchName">Search for a Character</h2>
-              <label for="search-bar">Name: </label>
-              <input type="text" id="search-bar" name="search" required />
-              <button type="submit">Search</button>
-            </form>
+      <fieldset> 
+        <form id="search-form">
+          <h2 id="searchName">Search for a Character</h2>
+          <label for="search-bar">Name: </label>
+          <input type="text" id="search-bar" name="search" required />
+          <button type="submit" id="search-button">Search</button>
+        </form>
+      </fieldset>
+      
          
     <section id="allCharacters">
       <h2>Character Directory:</h2>
