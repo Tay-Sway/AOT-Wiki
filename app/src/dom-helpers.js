@@ -62,8 +62,8 @@ export const eyImg = () => {
 
 export const introBio = () => {
   const page = document.querySelector("#bio");
-  page.textContent =
-    " Welcome to Attack on Titan Wiki.  All of the most important facts you need to know about the show!";
+  // page.textContent =
+  //   " Welcome to Attack on Titan Wiki.  All of the most important facts you need to know about the show!";
 };
 
 // this is an event listener for the button
