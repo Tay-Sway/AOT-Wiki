@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AOT Wiki</title>
     <link rel="Stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </head>
 
     <main id="aotWiki">
@@ -91,9 +92,30 @@
          
     <section id="allCharacters">
       <h2>Character Directory:</h2>
-      <div id="characters-container">
-        
+      <!-- page tabs -->
+      <div id="characters-container" class="tab">
+        <button id='tabOne' class="tabLinks" >Page 1</button>
+        <button id='tabTwo' class="tabLinks" >Page 2</button>
+        <button id='tabThree' class="tabLinks" >Page 3</button>
       </div>
+      <!-- page tab content -->
+       <div id="pageOne" class="tabContent" style="display:none;">
+        <h3 id="pOneHeader">Page 1</h3>
+        <div id="pageOneList">
+          <p>list </p>
+          <ul id="pageOneListNames"></ul>
+        </div>
+       </div>
+       <div id="pageTwo" class="tabContent" style="display:none;">
+        <h3 id="pTwoHeader">Page 2</h3>
+         <div id="pageTwoList"> <p>List </p>
+          <ul id="pageTwoListNames"></ul>
+        </div>
+       </div> 
+       <div id="pageThree" class="tabContent" style="display:none;">
+        <h3 id="pThreeHeader">Page 3</h3>
+        <div id="pageThreeList"> <p>List </p></div>
+       </div>
     </section>
            </fieldset>
     </main>

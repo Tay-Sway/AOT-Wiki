@@ -3,6 +3,10 @@ import {
   militaryImgs,
   mainCharactersImg,
   fetchCharacter,
+  characterListPageOne,
+  characterListPageTwo,
+  characterListPageThree,
+
   //   fullList,
 } from "./fetch-helpers";
 
@@ -116,6 +120,55 @@ document
     let modal = document.querySelector("#selected-character-modal");
     modal.showModal();
   });
+//
+//
+
+export const openTabs = (event) => {
+  const tabName = event.target.id;
+  const pageName = `page${tabName.slice(3)}`;
+  console.log(pageName);
+  let tabContent = document.getElementsByClassName("tabContent");
+  for (let i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
+  }
+  let tabLinks = document.getElementsByClassName("tabLinks");
+  for (let i = 0; i < tabLinks.length; i++) {
+    tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+  }
+  document.getElementById(pageName).style.display = "block";
+  event.currentTarget.className += " active";
+};
+
+// these are event listeners for opening the tabs
+const tabButtons = document.querySelectorAll("button.tabLinks");
+tabButtons.forEach((button) => {
+  button.addEventListener("click", openTabs);
+});
 
 //this is the list of the characters + event listener so clicking name will open modal.
-document.querySelector("#characters-container");
+// document.querySelector("#characters-container");
+
+//
+// event
+
+// create list for pages
+const firstPage = await characterListPageOne();
+export const pageOneList = () => {
+  const pageOnelist = document.getElementById("pageOneListNames");
+
+  console.log(firstPage);
+
+  for (let i = 0; i < firstPage.results.length; i++) {
+    console.log(firstPage.results[i]);
+    let createLi = document.createElement("li");
+    createLi.textContent = firstPage.results[i].name;
+
+    pageOnelist.append(createLi);
+  }
+  // let title = document.getElementById("#pageOneList");
+  // title.innerHTML = "";
+
+  // let list = document.createElement("li");
+
+  //
+};

@@ -4,6 +4,9 @@ import {
   fetchEpisode,
   militaryImgs,
   mainCharactersImg,
+  characterListPageOne,
+  characterListPageTwo,
+  characterListPageThree,
   // fullList,
 } from "./fetch-helpers";
 //
@@ -17,6 +20,8 @@ import {
   maImg,
   eyImg,
   introBio,
+  openTabs,
+  pageOneList,
 } from "./dom-helpers";
 //
 // Event listeners for the modal
@@ -29,8 +34,12 @@ const main = () => {
   fullAotCharactersList();
   //aotCharAsyncAwait();
   fetchEpisode(1);
-  trainingCadetImg();
+  // list fetch
+  characterListPageOne();
+  characterListPageTwo();
+  characterListPageThree();
   // organizationsImg();
+  trainingCadetImg();
   militaryImgs();
   scoutRegimentImg();
   garrisonRegimentImg();
@@ -40,5 +49,7 @@ const main = () => {
   eyImg(188);
   introBio();
   // testButton();
+  // openTabs();
+  pageOneList();
 };
 main();
