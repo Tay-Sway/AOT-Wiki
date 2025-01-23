@@ -4,9 +4,7 @@ import {
   fetchEpisode,
   militaryImgs,
   mainCharactersImg,
-  characterListPageOne,
-  characterListPageTwo,
-  characterListPageThree,
+  characterListPage,
   // fullList,
 } from "./fetch-helpers";
 //
@@ -21,25 +19,27 @@ import {
   eyImg,
   introBio,
   // openTabs,
-  pageOneList,
-  pageTwoList,
-  pageThreeList,
+  // pageOneList,
+  // pageTwoList,
+  // pageThreeList,
+  renderPageList,
 } from "./dom-helpers";
 //
 // Event listeners for the modal
 // import { testButton } from "./modal-render-helpers";
 
 //
-const main = () => {
+const main = async () => {
   // fullList();
   mainCharactersImg();
   fullAotCharactersList();
   //aotCharAsyncAwait();
   fetchEpisode(1);
   // list fetch
-  characterListPageOne();
-  characterListPageTwo();
-  characterListPageThree();
+  // characterListPage(2);
+  // characterListPage(5);
+  // characterListPage(10);
+
   // organizationsImg();
   trainingCadetImg();
   militaryImgs();
@@ -52,8 +52,12 @@ const main = () => {
   introBio();
   // testButton();
   // openTabs();
-  pageOneList();
-  pageTwoList();
-  pageThreeList();
+
+  const firstPage = await characterListPage(2);
+  const secondPage = await characterListPage(5);
+  const thirdPage = await characterListPage(10);
+  renderPageList(firstPage, "pageOneListNames");
+  renderPageList(secondPage, "pageTwoListNames");
+  renderPageList(thirdPage, "pageThreeListNames");
 };
 main();

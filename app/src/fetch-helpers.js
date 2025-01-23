@@ -124,42 +124,10 @@ export const mainCharactersImg = async () => {
 //   }
 // };
 // fetch for the list
-export const characterListPageOne = async () => {
+export const characterListPage = async (pageNumber) => {
   try {
     const response = await fetch(
-      `https://api.attackontitanapi.com/characters?page=2`
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log("Fetched Data:", data);
-    return data;
-  } catch (error) {
-    console.error("There was an error fetching the data:", error.message);
-  }
-};
-
-export const characterListPageTwo = async () => {
-  try {
-    const response = await fetch(
-      `https://api.attackontitanapi.com/characters?page=5`
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log("Fetched Data:", data);
-    return data;
-  } catch (error) {
-    console.error("There was an error fetching the data:", error.message);
-  }
-};
-
-export const characterListPageThree = async () => {
-  try {
-    const response = await fetch(
-      `https://api.attackontitanapi.com/characters?page=10`
+      `https://api.attackontitanapi.com/characters?page=${pageNumber}`
     );
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

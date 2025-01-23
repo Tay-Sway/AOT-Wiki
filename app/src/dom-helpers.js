@@ -3,9 +3,7 @@ import {
   militaryImgs,
   mainCharactersImg,
   fetchCharacter,
-  characterListPageOne,
-  characterListPageTwo,
-  characterListPageThree,
+  characterListPage,
 
   //   fullList,
 } from "./fetch-helpers";
@@ -152,43 +150,14 @@ tabButtons.forEach((button) => {
 // event
 
 // create list for pages
-const firstPage = await characterListPageOne();
-export const pageOneList = () => {
-  const pageOnelist = document.getElementById("pageOneListNames");
 
-  console.log(firstPage);
-
-  for (let i = 0; i < firstPage.results.length; i++) {
-    console.log(firstPage.results[i]);
+export const renderPageList = (pageData, pageListElementId) => {
+  const pageList = document.getElementById(pageListElementId);
+  for (let i = 0; i < pageData.results.length; i++) {
+    console.log(pageData.results[i]);
     let createLi = document.createElement("li");
-    createLi.textContent = firstPage.results[i].name;
+    createLi.textContent = pageData.results[i].name;
 
-    pageOnelist.append(createLi);
-  }
-};
-
-const secondPage = await characterListPageTwo();
-export const pageTwoList = () => {
-  const pageTwolist = document.getElementById("pageTwoListNames");
-  console.log(secondPage);
-  for (let i = 0; i < secondPage.results.length; i++) {
-    console.log(secondPage.results[i]);
-    let createLi = document.createElement("li");
-    createLi.textContent = secondPage.results[i].name;
-
-    pageTwolist.append(createLi);
-  }
-};
-
-const thirdPage = await characterListPageThree();
-export const pageThreeList = () => {
-  const pageThreelist = document.getElementById("pageThreeListNames");
-  console.log(thirdPage);
-  for (let i = 0; i < thirdPage.results.length; i++) {
-    console.log(thirdPage.results[i]);
-    let createLi = document.createElement("li");
-    createLi.textContent = thirdPage.results[i].name;
-
-    pageThreelist.append(createLi);
+    pageList.append(createLi);
   }
 };
