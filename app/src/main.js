@@ -20,8 +20,10 @@ import {
   maImg,
   eyImg,
   introBio,
-  openTabs,
+  // openTabs,
   pageOneList,
+  pageTwoList,
+  pageThreeList,
 } from "./dom-helpers";
 //
 // Event listeners for the modal
@@ -51,5 +53,7 @@ const main = () => {
   // testButton();
   // openTabs();
   pageOneList();
+  pageTwoList();
+  pageThreeList();
 };
 main();

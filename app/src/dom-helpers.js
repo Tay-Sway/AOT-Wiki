@@ -165,10 +165,30 @@ export const pageOneList = () => {
 
     pageOnelist.append(createLi);
   }
-  // let title = document.getElementById("#pageOneList");
-  // title.innerHTML = "";
+};
 
-  // let list = document.createElement("li");
+const secondPage = await characterListPageTwo();
+export const pageTwoList = () => {
+  const pageTwolist = document.getElementById("pageTwoListNames");
+  console.log(secondPage);
+  for (let i = 0; i < secondPage.results.length; i++) {
+    console.log(secondPage.results[i]);
+    let createLi = document.createElement("li");
+    createLi.textContent = secondPage.results[i].name;
 
-  //
+    pageTwolist.append(createLi);
+  }
+};
+
+const thirdPage = await characterListPageThree();
+export const pageThreeList = () => {
+  const pageThreelist = document.getElementById("pageThreeListNames");
+  console.log(thirdPage);
+  for (let i = 0; i < thirdPage.results.length; i++) {
+    console.log(thirdPage.results[i]);
+    let createLi = document.createElement("li");
+    createLi.textContent = thirdPage.results[i].name;
+
+    pageThreelist.append(createLi);
+  }
 };
