@@ -17,6 +17,7 @@ import {
   maImg,
   eyImg,
   introBio,
+  // hideModal,
 } from "./dom-helpers";
 //
 // Event listeners for the modal
@@ -40,5 +41,7 @@ const main = () => {
   eyImg(188);
   introBio();
   // testButton();
+  hideModal();
 };
+
 main();
