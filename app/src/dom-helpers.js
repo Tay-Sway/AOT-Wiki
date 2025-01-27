@@ -4,8 +4,6 @@ import {
   mainCharactersImg,
   fetchCharacter,
   characterListPage,
-
-  //   fullList,
 } from "./fetch-helpers";
 
 const organizations = await militaryImgs();
@@ -73,21 +71,14 @@ export const introBio = () => {
 document
   .querySelector("#main-characters")
   .addEventListener("click", async (event) => {
-    console.log(event);
-
-    if (!event.target.matches(".more-info-btn")) {
-      return;
-    }
-
-    console.log(event.target.dataset.characterId);
+    if (!event.target.matches(".more-info-btn")) return;
 
     const characterData = await fetchCharacter(
       event.target.dataset.characterId
     );
-    console.log(characterData);
 
     let charInfo = document.querySelector("#selected-character-modal-info");
-    charInfo.textContent = `${characterData.name}, ${characterData.alias},${characterData.age},${characterData.status},${characterData.occupation},${characterData.roles}, ${characterData.episodes[0]} `;
+    charInfo.textContent = `${characterData.name}, ${characterData.alias}, ${characterData.age}, ${characterData.status}, ${characterData.occupation}, ${characterData.roles}, ${characterData.episodes[0]}`;
 
     let modal = document.querySelector("#selected-character-modal");
     modal.showModal();
@@ -97,18 +88,13 @@ document
 document
   .querySelector("#militaryDivisons")
   .addEventListener("click", async (event) => {
-    console.log(event);
-    if (!event.target.matches(".more-info-btn-military")) {
-      return;
-    }
-    console.log(event.target.dataset.organizationsId);
+    if (!event.target.matches(".more-info-btn-military")) return;
 
     const characterData = await militaryImgs();
-    console.log(characterData);
     for (let i = 0; i < characterData.results.length; i++) {
       if (event.target.dataset.organizationsId == characterData.results[i].id) {
         let charInfo = document.querySelector("#selected-character-modal-info");
-        charInfo.textContent = `${characterData.results[i].name},${characterData.results[i].occupations},${characterData.results[i].affiliation},${characterData.results[i].debut}`;
+        charInfo.textContent = `${characterData.results[i].name}, ${characterData.results[i].occupations}, ${characterData.results[i].affiliation}, ${characterData.results[i].debut}`;
         break;
       }
     }
@@ -141,17 +127,13 @@ export const handleSearch = () => {
 
         try {
           const characterData = await fetchCharacter(characterId);
-          console.log(characterData);
-
-          // Populate modal with character data
           const charInfo = document.querySelector(
             "#selected-character-modal-info"
           );
           charInfo.textContent = `${characterData.name}, ${characterData.alias}, ${characterData.age}, ${characterData.status}, ${characterData.occupation}, ${characterData.roles}, ${characterData.episodes[0]}`;
 
-          // Show modal
           const modal = document.querySelector("#selected-character-modal");
-          modal.showModal(); // Ensure the modal is displayed
+          modal.showModal();
 
           found = true;
           break;
@@ -174,23 +156,17 @@ searchForm.addEventListener("submit", (e) => {
   handleSearch();
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   // existing functions like handleSearch, etc.
-
-//   // Modal close functionality
+// Modal close functionality
 const closeModalButton = document.querySelector("#close-modal-button");
 closeModalButton.addEventListener("click", () => {
   const modal = document.querySelector("dialog");
-  console.log("I was clicked");
   modal.close(); // Close the modal
 });
 
-// create list for pages
-
+// Function to render character list pages
 export const renderPageList = (pageData, pageListElementId) => {
   const pageList = document.getElementById(pageListElementId);
   for (let i = 0; i < pageData.results.length; i++) {
-    console.log(pageData.results[i]);
     let createLi = document.createElement("li");
     createLi.textContent = pageData.results[i].name;
 
@@ -198,10 +174,10 @@ export const renderPageList = (pageData, pageListElementId) => {
   }
 };
 
+// Tab navigation functionality
 export const openTabs = (event) => {
   const tabName = event.target.id;
   const pageName = `page${tabName.slice(3)}`;
-  console.log(pageName);
   let tabContent = document.getElementsByClassName("tabContent");
   for (let i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
@@ -214,7 +190,7 @@ export const openTabs = (event) => {
   event.currentTarget.className += " active";
 };
 
-// these are event listeners for opening the tabs
+// Event listeners for opening the tabs
 const tabButtons = document.querySelectorAll("button.tabLinks");
 tabButtons.forEach((button) => {
   button.addEventListener("click", openTabs);

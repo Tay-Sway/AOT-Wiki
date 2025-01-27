@@ -1,106 +1,185 @@
+/* Global styles */
 body {
-  background-color: rgb(139, 76, 76);
-  color: white;
+  background-color: rgb(139, 76, 76); /* Background color for the page */
+  color: white; /* Text color */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
+/* Rotten Tomatoes section (top right corner) */
 #rotten-tomatoes {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between Rotten Tomatoes and Popcorn Meter */
-  background-color: black; /* Fills the container with black */
-  border: 2px solid rgb(186, 61, 61); /* White border around the container */
-  padding: 5px; /* Optional: space between the border and the content */
-  border-radius: 5px; /* Optional: rounded corners */
+  position: absolute; /* Position it at the top-right of the screen */
+  top: 10px; /* Distance from the top of the page */
+  right: 10px; /* Distance from the right side */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically at the center */
+  gap: 10px; /* Space between Rotten Tomatoes logo and Popcorn Meter */
+  background-color: black; /* Black background for the container */
+  border: 2px solid rgb(186, 61, 61); /* Border around the container with a specific color */
+  padding: 5px;
+  border-radius: 5px;
 }
 
 #rotten-tomatoes img {
-  width: 30px; /* Adjust the size of the logos */
-  height: auto;
+  width: 30px; /* Width of the images (Rotten Tomatoes logo) */
+  height: auto; /* Automatically adjust height to maintain aspect ratio */
 }
 
 #rotten-tomatoes span {
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
+  font-size: 14px; /* Font size for the text inside this section */
+  font-weight: bold; /* Make the text bold */
+  color: white; /* Text color */
 }
 
 /* Main Characters Section */
 #main-characters {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  margin: 2rem auto;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack items vertically for mobile */
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto; /* Vertical margin for spacing between sections */
 }
 
 .main-character {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
+  display: flex; /* Use flexbox for layout of individual character */
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: space-evenly; /* Evenly space items inside each character block */
+  text-align: center; /* Center text horizontally */
 }
 
 .mc-info {
-  display: none;
+  display: none; /* Initially hide the character information */
 }
 
 /* Military Divisions Section */
 #militaryDivisons {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  margin: 2rem auto;
+  display: flex; /* Use flexbox for layout */
+  flex-direction: row; /* Align images horizontally for mobile */
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto; /* Vertical margin for spacing between sections */
+  gap: 20px; /* Space between images */
 }
 
 .military-names {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  text-align: center;
+  display: flex; /* Use flexbox for layout of military divisions */
+  justify-content: center; /* Align items horizontally */
+  align-items: center;
+}
+
+.military-names img {
+  width: 100px; /* Set image size for mobile */
+  height: 100px; /* Set image size for mobile */
+  object-fit: contain; /* Ensure the image scales to fit the box without distortion */
+  margin: 10px 0;
 }
 
 /* Header Section */
 #header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: flex; /* Use flexbox for header layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Align items to the center */
 }
-/* #walls-of-paradis-island {
-  display: flexbox;
-  flex-direction: row;
-  justify-content: space-around;
-} */
 
+/* Tab section styles */
 .tab {
-  overflow: hidden;
-  border: rgb(139, 76, 76);
-  background-color: rgb(255, 182, 127);
+  overflow: hidden; /* Hide content that overflows the tab container */
+  border: rgb(139, 76, 76); /* Border color for the tabs container */
+  background-color: rgb(
+    255,
+    182,
+    127
+  ); /* Background color of the tab container */
 }
 
 .tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-.tab button.active {
-  background-color: rgb(161, 110, 72);
-  /* padding: 6px 12px; */
-  /* border: 1px solid #ccc; */
-  border-top: none;
-}
-.tab button:hover {
-  background-color: #ccc;
+  background-color: inherit; /* Inherit the background color from the parent */
+  float: none; /* Disable floating for mobile */
+  width: 100%; /* Make buttons full-width */
+  border: none; /* Remove border */
+  outline: none; /* Remove the outline */
+  cursor: pointer; /* Change cursor to pointer when hovering over button */
+  padding: 14px 16px; /* Padding around the text inside the button */
+  text-align: center; /* Center text inside buttons */
+  transition: 0.3s; /* Smooth transition on hover or active state */
 }
 
+.tab button.active {
+  background-color: rgb(
+    161,
+    110,
+    72
+  ); /* Change background color when button is active */
+}
+
+.tab button:hover {
+  background-color: #ccc; /* Change background color on hover */
+}
+
+/* Tab content styles */
 .tabContent {
-  /* display: none; */
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  padding: 6px 12px; /* Padding inside the tab content */
+  border: 1px solid #ccc; /* Border around the content */
+  border-top: none; /* Remove the top border */
+}
+
+/* Media Queries for larger screens */
+
+/* Larger screens (tablet and up) */
+@media (min-width: 768px) {
+  #main-characters {
+    flex-direction: row; /* Arrange main characters horizontally */
+    justify-content: space-evenly; /* Space the characters evenly */
+  }
+
+  .main-character {
+    width: 25%; /* Limit the width of each character block */
+  }
+
+  #militaryDivisons {
+    flex-direction: row; /* Arrange military divisions horizontally */
+    justify-content: space-evenly; /* Space the divisions evenly */
+  }
+
+  .military-names {
+    width: 25%; /* Limit the width of each division block */
+  }
+
+  .military-names img {
+    width: 120px; /* Adjust image size for larger screens */
+    height: 120px; /* Adjust image size for larger screens */
+  }
+
+  /* Tab section */
+  .tab button {
+    width: auto; /* Auto width for buttons on larger screens */
+    display: inline-block; /* Make buttons inline-block */
+  }
+}
+
+/* Desktop screens (larger than 1024px) */
+@media (min-width: 1024px) {
+  /* Main characters layout adjustments for even larger screens */
+  #main-characters {
+    justify-content: space-evenly; /* Evenly space characters */
+  }
+
+  .main-character {
+    width: 20%; /* Even narrower width for character blocks on large screens */
+  }
+
+  /* Military divisions layout adjustments for even larger screens */
+  #militaryDivisons {
+    justify-content: space-evenly; /* Evenly space military divisions */
+  }
+
+  .military-names {
+    width: 20%; /* Even narrower width for division blocks on large screens */
+  }
+
+  .military-names img {
+    width: 150px; /* Adjust image size for large screens */
+    height: 150px; /* Adjust image size for large screens */
+  }
 }
