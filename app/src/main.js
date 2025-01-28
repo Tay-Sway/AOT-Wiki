@@ -44,6 +44,15 @@ const main = async () => {
   trainingCadetImg();
   // organizationsImg();
   militaryImgs();
+  const imageUrl = "path/to/your-image.jpg"; // Ensure the path is correct
+  const imageElement = document.querySelector("#some-image-element");
+
+  if (imageElement) {
+    imageElement.src = imageUrl;
+  } else {
+    console.error("Image element not found");
+  }
+
   scoutRegimentImg();
   garrisonRegimentImg();
   militaryPoliceImg();

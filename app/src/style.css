@@ -94,6 +94,60 @@ body {
   align-items: center; /* Align items to the center */
 }
 
+/* Where to Watch Section */
+.watch-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.watch-button {
+  text-decoration: none;
+  color: #f9a825;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tv-icon {
+  margin-right: 8px;
+  font-size: 1.5rem;
+}
+
+/* Dropdown Menu */
+.watch-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #444;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.watch-links li {
+  padding: 5px 20px;
+}
+
+.watch-links li a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+.watch-links li a:hover {
+  color: #f9a825;
+}
+
+/* Display dropdown on hover */
+.watch-container:hover .watch-links {
+  display: block;
+}
+
 /* Tab section styles */
 .tab {
   overflow: hidden; /* Hide content that overflows the tab container */
@@ -194,4 +248,12 @@ body {
     width: 250px; /* Adjust image size for large screens */
     height: 250px; /* Adjust image size for large screens */
   }
+}
+
+#modal-image {
+  width: 100%; /* Ensures the image fills the width of the modal */
+  max-width: 500px; /* Limit the max width of the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Round corners for the image */
+  margin: 20px 0; /* Add some margin around the image */
 }

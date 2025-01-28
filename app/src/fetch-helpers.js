@@ -48,23 +48,35 @@ export async function fetchCharactersFromPage(pageNumber) {
 }
 
 // Fetches a specific episode by its episode number
-export const fetchEpisode = async (episodeNumber) => {
+// api.js
+export const fetchEpisode = async (episodeId) => {
+  const episodeUrl = `https://api.attackontitanapi.com/episodes/${episodeId}`;
   try {
-    // Fetch data for a specific episode
-    const response = await fetch(
-      `https://api.attackontitanapi.com/episodes/${episodeNumber}`
-    );
+    console.log("Fetching episode from URL:", episodeUrl);
+    const response = await fetch(episodeUrl);
+    console.log("Response Status:", response.status);
+
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      const errorText = await response.text();
+      console.error("Error response body:", errorText);
+      throw new Error(`Network response was not ok: ${response.statusText}`);
     }
-    const data = await response.json();
-    console.log("Fetched Data:", data); // Logs data to console for debugging
-    return data; // Returns the episode data
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      const responseBody = await response.text();
+      console.error("Response body:", responseBody);
+      throw new Error("Response is not JSON");
+    }
+
+    const episodeData = await response.json();
+    console.log("Fetched Episode Data:", episodeData);
+    return episodeData;
   } catch (error) {
-    console.error("There was an error fetching the data:", error.message);
+    console.error("Error fetching episode:", error);
+    return null;
   }
 };
-
 // Fetches all military organizations from the API, including their images
 export const militaryImgs = async () => {
   try {
@@ -158,3 +170,30 @@ export const characterListPage = async (pageNumber) => {
     console.error("There was an error fetching the data:", error.message);
   }
 };
+
+// Function to fetch character data
+export function fetchCharacterData(characterId) {
+  const url = `https://api.attackontitanapi.com/characters/${characterId}`;
+  return fetch(url)
+    .then((response) => response.json())
+    .then((characterData) => {
+      return fetchEpisodeData(characterData.episodes[0]).then((episodeData) => {
+        return { characterData, episodeData }; // Return both character and episode data
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching character data:", error);
+    });
+}
+
+// Function to fetch episode data
+// const fetchEpisodeData = async (episodeUrl) => {
+//   try {
+//     const response = await fetch(episodeUrl);
+//     const episodeData = await response.json();
+//     return episodeData; // Return episode data
+//   } catch (error) {
+//     console.error("Error fetching episode data:", error);
+//     return null;
+//   }
+// };

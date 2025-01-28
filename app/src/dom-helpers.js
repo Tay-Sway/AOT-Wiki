@@ -4,6 +4,7 @@ import {
   mainCharactersImg,
   fetchCharacter,
   characterListPage,
+  fetchEpisode,
 } from "./fetch-helpers";
 
 const organizations = await militaryImgs();
@@ -65,57 +66,77 @@ export const introBio = () => {
 };
 
 // Event listener for Main Characters button
-// Event listener for Main Characters button
 document
   .querySelector("#main-characters")
   .addEventListener("click", async (event) => {
     if (!event.target.matches(".more-info-btn")) return;
 
-    const characterData = await fetchCharacter(
-      event.target.dataset.characterId
-    );
+    try {
+      const characterData = await fetchCharacter(
+        event.target.dataset.characterId
+      );
 
-    // Log the character data to check if img URL is present
-    console.log(characterData);
+      // Log the character data to check if img URL is present
+      console.log("Character Data:", characterData);
 
-    // Clean up the image URL
-    let imgUrl = characterData.img || "https://via.placeholder.com/150"; // Use a placeholder if img is not found
-    imgUrl = imgUrl.split("/revision")[0]; // Removing the revision part from the URL
+      // Clean up the image URL
+      let imgUrl = characterData.img || "https://via.placeholder.com/150"; // Use a placeholder if img is not found
+      imgUrl = imgUrl.split("/revision")[0]; // Removing the revision part from the URL
 
-    const charInfo = document.querySelector("#selected-character-modal-info");
-    charInfo.innerHTML = `
-    <p>Name: ${characterData.name}</p>
-    <p>Alias: ${characterData.alias}</p>
-    <p>Age: ${characterData.age}</p>
-    <p>Status: ${characterData.status}</p>
-    <p>Occupation: ${characterData.occupation}</p>
-    <p>Roles: ${characterData.roles}</p>
-    <p>First Episode: ${characterData.episodes[0]}</p>
-    <img src="${imgUrl}" alt="${characterData.name} Image" style="width: 100%; height: auto; border-radius: 8px;">
-  `;
+      const charInfo = document.querySelector("#selected-character-modal-info");
 
-    let modal = document.querySelector("#selected-character-modal");
-    modal.showModal();
-  });
+      // Function to format the field by replacing commas with spaces
+      const formatField = (field) => {
+        if (typeof field === "string") {
+          return field
+            .split(",")
+            .map((item) => item.trim())
+            .join(", "); // Add spaces after commas
+        } else if (Array.isArray(field)) {
+          return field.length > 0 ? field.join(", ") : "N/A"; // Ensure spaces after commas
+        }
+        return "N/A"; // Return "N/A" if field is undefined or null
+      };
 
-// Event listener for Military Branches button
-document
-  .querySelector("#militaryDivisons")
-  .addEventListener("click", async (event) => {
-    if (!event.target.matches(".more-info-btn-military")) return;
+      // Ensure characterData is not null or undefined
+      if (characterData) {
+        // Fetch episode name based on the first episode link
+        const episodeUrl = characterData.episodes[0]; // Assuming this is a full URL
+        let episodeName = "N/A"; // Default value if no episode data is found
 
-    const characterData = await militaryImgs();
-    for (let i = 0; i < characterData.results.length; i++) {
-      if (event.target.dataset.organizationsId == characterData.results[i].id) {
-        let charInfo = document.querySelector("#selected-character-modal-info");
-        charInfo.textContent = `${characterData.results[i].name}, ${characterData.results[i].occupations}, ${characterData.results[i].affiliation}, ${characterData.results[i].debut}`;
-        break;
+        console.log("Episode URL:", episodeUrl); // Log the episode URL
+
+        if (episodeUrl) {
+          const episodeData = await fetchEpisode(episodeUrl); // Use the full URL directly
+          console.log("Fetched Episode Data:", episodeData); // Log the fetched episode data
+          episodeName =
+            episodeData && episodeData.name ? episodeData.name : "N/A"; // Set the episode name if available
+        }
+
+        charInfo.innerHTML = `
+          <img src="${imgUrl}" alt="${characterData.name} Image" 
+          style="width: 350px; height: 350px; object-fit: cover; border-radius: 8px;">
+          <p>Name: ${characterData.name}</p>
+          <p>Alias: ${formatField(characterData.alias) || "N/A"}</p>
+          <p>Age: ${characterData.age || "N/A"}</p>
+          <p>Status: ${characterData.status || "N/A"}</p>
+          <p>Occupation: ${characterData.occupation || "N/A"}</p>
+          <p>Roles: ${formatField(characterData.roles) || "N/A"}</p>
+          <p>First Episode: ${episodeName}</p>
+        `;
+      } else {
+        console.error("No character data available.");
       }
-    }
 
-    let modal = document.querySelector("#selected-character-modal");
-    modal.showModal();
+      // Open the modal
+      const modal = document.querySelector("#selected-character-modal");
+      modal.showModal();
+    } catch (error) {
+      console.error("Error fetching character data:", error);
+    }
   });
+// Event listener for Military Branches button
+// Function to handle button click and show modal
 
 // Search event listener
 export const handleSearch = () => {
@@ -208,4 +229,116 @@ export const openTabs = (event) => {
 const tabButtons = document.querySelectorAll("button.tabLinks");
 tabButtons.forEach((button) => {
   button.addEventListener("click", openTabs);
+});
+
+// Event listeners for each military division button
+document
+  .querySelector("#militaryDivisons")
+  .addEventListener("click", (event) => {
+    if (!event.target.classList.contains("more-info-btn-military")) return;
+
+    // Get the organization ID from the clicked button
+    const organizationId = event.target.dataset.organizationsId;
+
+    // Define organization info based on the ID
+    let orgInfo = {};
+
+    switch (organizationId) {
+      case "3":
+        orgInfo = {
+          name: "Training Corps",
+          image:
+            "https://doctorjhwatson.wordpress.com/wp-content/uploads/2015/02/aot-1-intro.jpg?w=660",
+          occupation: "Trainee Soldier",
+          affiliation: "Training Corps",
+          debut: "Season 1 Episode 3",
+          notableMembers: [
+            "Eren Yeager",
+            "Mikasa Ackermann",
+            "Armin Arlert",
+            "Reiner Braun",
+            "Bertholdt Hoover",
+          ],
+        };
+        break;
+      case "15":
+        orgInfo = {
+          name: "Survey Corps",
+          image:
+            "https://i.ytimg.com/vi/CRo_dh0yOJ8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBkFaSxwYGDSVFC7nxmVKr96uOzDw",
+          occupation: "Surveyor",
+          affiliation: "Survey Corps",
+          debut: "Season 1 Episode 5",
+          notableMembers: [
+            "Levi Ackerman",
+            "Erwin Smith",
+            "Mikasa Ackermann",
+            "Jean Kirstein",
+            "Erwin Smith",
+          ],
+        };
+        break;
+      case "4":
+        orgInfo = {
+          name: "Garrison Regiment",
+          image:
+            "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/1000087522.jpg",
+          occupation: "Defender",
+          affiliation: "Garrison Regiment",
+          debut: "Season 1 Episode 1",
+          notableMembers: [
+            "Dot Pixis",
+            "Kitz Weilman",
+            "Keith Shadis",
+            "Rico Brzenska",
+            "Mitabi Jarnach",
+          ],
+        };
+        break;
+      case "10":
+        orgInfo = {
+          name: "Military Police Brigade",
+          image:
+            "https://paninigames.com/wp-content/uploads/2019/04/feat-6.png?w=520&h=350&crop=1",
+          occupation: "Policeman",
+          affiliation: "Military Police",
+          debut: "Season 1 Episode 23",
+          notableMembers: [
+            "Nile Dock",
+            "Marlo Freudenberg",
+            "Kenny Ackerman",
+            "Traute Caven ",
+            "Djel Sannes",
+          ],
+        };
+        break;
+      default:
+        console.error("Unknown organization ID");
+        return; // Exit if the ID is not recognized
+    }
+
+    // Update the modal content
+    const modalContent = document.querySelector(
+      "#selected-character-modal-info"
+    );
+    modalContent.innerHTML = `
+      <h2>${orgInfo.name}</h2>
+      <img src="${orgInfo.image}" alt="${orgInfo.name}" id="modal-image">
+      <p><strong>Occupation:</strong> ${orgInfo.occupation}</p>
+      <p><strong>Affiliation:</strong> ${orgInfo.affiliation}</p>
+      <p><strong>Debut:</strong> ${orgInfo.debut}</p>
+      <p><strong>Notable Members:</strong> ${orgInfo.notableMembers.join(
+        ", "
+      )}</p>
+    `;
+
+    // Show the modal
+    const modal = document.querySelector("#selected-character-modal");
+    modal.showModal();
+  });
+
+// Close modal functionality
+document.querySelector("#close-modal-button").addEventListener("click", () => {
+  const modal = document.querySelector("#selected-character-modal");
+  modal.close(); // Close the modal
 });

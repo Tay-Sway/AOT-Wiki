@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AOT Wiki</title>
-    <link rel="Stylesheet" href="src/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -16,11 +14,27 @@
       <span>95%</span>
     </div>
   
-   <main id="aotWiki">
-  <section id="header">
-    <h1>Welcome to Attack on Titan Wiki!</h1>
-    <p id="bio"></p>
-  </section>
+    <main id="aotWiki">
+      <section id="header">
+        <h1>Welcome to Attack on Titan Wiki!</h1>
+        <p id="bio"></p>
+
+        <nav class="watch-container">
+          <a href="#" class="watch-button">
+            <span class="tv-icon">📺</span> Where to Watch
+          </a>
+          <ul class="watch-links">
+            <li><a href="https://www.crunchyroll.com/series/GR751KNZY/attack-on-titan?utm_campaign=media_actions&utm_medium=deep_link&utm_source=google/" target="_blank">Crunchyroll</a></li>
+            <li><a href="https://www.hulu.com/series/9c91ffa3-dc20-48bf-8bc5-692e37c76d88" target="_blank">Hulu</a></li>
+            <li><a href="https://www.amazon.com/gp/video/detail/amzn1.dv.gti.885b9a80-8923-4653-8711-0945f560d867?autoplay=0&ref_=atv_cf_strg_wb" target="_blank">Amazon Prime Video</a></li>
+            
+          </ul>
+        </nav>
+      </section>
+    </main>
+  </body>
+</html>
+
 
   <h2>Main Characters</h2>
   <section id="main-characters" style="background-color: rgb(7, 7, 6)">
@@ -60,40 +74,44 @@
 </main>
 
 
-      <h2>Military Branches</h2>
-      <section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
-        <div id="training-corps" class="military-names">
-         <div > Training Corps</div>
-        <div><img id="training-cadet-img" src alt /></div>
-        <div><button data-organizations-id="3" class="more-info-btn-military">More Info</button></div>
-        </div>
+<h2>Military Branches</h2>
+<section id="militaryDivisons" style="background-color: rgb(7, 7, 6)">
+  <!-- Training Corps -->
+  <div id="training-corps" class="military-names">
+    <div>Training Corps</div>
+    <div><img id="training-cadet-img" src="" alt="Training Corps" /></div>
+    <div><button data-organizations-id="3" class="more-info-btn-military">More Info</button></div>
+  </div>
 
-        <div id="scout-regiment" class="military-names">
-           <div > Survey Corps</div>
-           <div><img id="scout-img" src alt /> </div>
-           <div><button data-organizations-id="15" class="more-info-btn-military">More Info</button></div>
-          </div>
-          
-        <!-- garrison  -->
-        <div id="garrison-regiment" class="military-names">
-          <div>Garrison Regiment</div>
-          <img id="garrison-img" src alt />
-          <div><button data-organizations-id="4" class="more-info-btn-military">More Info</button></div>
-        </div>
+  <!-- Survey Corps -->
+  <div id="scout-regiment" class="military-names">
+    <div>Survey Corps</div>
+    <div><img id="scout-img" src="" alt="Survey Corps" /></div>
+    <div><button data-organizations-id="15" class="more-info-btn-military">More Info</button></div>
+  </div>
+  
+  <!-- Garrison Regiment -->
+  <div id="garrison-regiment" class="military-names">
+    <div>Garrison Regiment</div>
+    <img id="garrison-img" src="" alt="Garrison Regiment" />
+    <div><button data-organizations-id="4" class="more-info-btn-military">More Info</button></div>
+  </div>
 
-        <div id="military-police" class="military-names">
-          <div>Military Police Brigade</div>
-          <img id="police-img" src alt />
-          <div><button data-organizations-id="10" class="more-info-btn-military">More info</button></div>
-        </div>
-      </section>
-      <!--  -->
-      <dialog id="selected-character-modal">
-        <div id="selected-character-modal-info"></div>
-        <button id="close-modal-button">X</button>
-      </dialog>
-      
-      <!--  -->
+  <!-- Military Police Brigade -->
+  <div id="military-police" class="military-names">
+    <div>Military Police Brigade</div>
+    <img id="police-img" src="" alt="Military Police Brigade" />
+    <div><button data-organizations-id="10" class="more-info-btn-military">More Info</button></div>
+  </div>
+</section>
+
+<!-- Modal -->
+<dialog id="selected-character-modal">
+  <button id="close-modal-button">Close</button>
+  <div id="selected-character-modal-info"></div>
+</dialog>
+
+
       
       <!--  search bar for charters -->
       <fieldset> 
