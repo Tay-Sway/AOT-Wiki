@@ -34,18 +34,30 @@ body {
 
 /* Main Characters Section */
 #main-characters {
-  display: flex; /* Use flexbox for layout */
-  flex-direction: column; /* Stack items vertically for mobile */
-  justify-content: center;
-  align-items: center;
-  margin: 2rem auto; /* Vertical margin for spacing between sections */
+  display: flex;
+  justify-content: space-evenly; /* Evenly spaces the items */
+  align-items: center; /* Centers the items vertically */
+  gap: 40px; /* Adds more space between items */
 }
 
 .main-character {
-  display: flex; /* Use flexbox for layout of individual character */
-  flex-direction: column; /* Stack elements vertically */
-  justify-content: space-evenly; /* Evenly space items inside each character block */
-  text-align: center; /* Center text horizontally */
+  text-align: center; /* Centers the text inside each character */
+}
+
+.main-character img {
+  width: 320px; /* Increase the default image width */
+  height: auto;
+  object-fit: cover; /* Ensures the image maintains aspect ratio */
+  border-radius: 8px; /* Optional, adds rounded corners */
+}
+
+/* Eren Yeager's image should be larger */
+#eren-yeager img {
+  width: 320px; /* Eren's width */
+  height: 320px; /* Eren's height */
+  object-fit: cover; /* Ensures the image fills the space proportionally */
+  object-position: top center; /* Focuses on the top-center (face) of the image */
+  border-radius: 8px; /* Optional: adds rounded corners */
 }
 
 .mc-info {
@@ -179,7 +191,7 @@ body {
   }
 
   .military-names img {
-    width: 150px; /* Adjust image size for large screens */
-    height: 150px; /* Adjust image size for large screens */
+    width: 250px; /* Adjust image size for large screens */
+    height: 250px; /* Adjust image size for large screens */
   }
 }

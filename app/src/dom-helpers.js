@@ -38,28 +38,25 @@ export const militaryPoliceImg = () => {
 };
 
 // Functions to display images of main characters (Eren, Mikasa, Armin)
-const mainCharacters = await fullAotCharactersList();
-const lastMain = await mainCharactersImg();
+// const mainCharacters = await fullAotCharactersList();
+// const lastMain = await mainCharactersImg();
 
 export const aaImg = () => {
   const Img = document.querySelector("#armin-arlert-img");
-  const url = mainCharacters.results[0].img;
-  let fixedUrl = url.split("/revision")[0];
-  Img.src = fixedUrl;
+  Img.src =
+    "https://static.myfigurecollection.net/upload/entries/1/48285-0e750.jpg"; // Replace with actual static URL
 };
 
 export const maImg = () => {
   const Img = document.querySelector("#mikasa-ackermann-img");
-  const url = mainCharacters.results[1].img;
-  let fixedUrl = url.split("/revision")[0];
-  Img.src = fixedUrl;
+  Img.src =
+    "https://i.pinimg.com/736x/11/09/f1/1109f10cd6a866a8116a432056c7cb48.jpg"; // Replace with actual static URL
 };
 
 export const eyImg = () => {
   const Img = document.querySelector("#eren-yeager-img");
-  const url = lastMain.results[7].img;
-  let fixedUrl = url.split("/revision")[0];
-  Img.src = fixedUrl;
+  Img.src =
+    "https://static1.cbrimages.com/wordpress/wp-content/uploads/2024/06/eren-smiles-in-attack-on-titan.jpg"; // Replace with actual static URL
 };
 
 // Placeholder function for intro bio (currently inactive)
@@ -67,6 +64,7 @@ export const introBio = () => {
   const page = document.querySelector("#bio");
 };
 
+// Event listener for Main Characters button
 // Event listener for Main Characters button
 document
   .querySelector("#main-characters")
@@ -77,8 +75,24 @@ document
       event.target.dataset.characterId
     );
 
-    let charInfo = document.querySelector("#selected-character-modal-info");
-    charInfo.textContent = `${characterData.name}, ${characterData.alias}, ${characterData.age}, ${characterData.status}, ${characterData.occupation}, ${characterData.roles}, ${characterData.episodes[0]}`;
+    // Log the character data to check if img URL is present
+    console.log(characterData);
+
+    // Clean up the image URL
+    let imgUrl = characterData.img || "https://via.placeholder.com/150"; // Use a placeholder if img is not found
+    imgUrl = imgUrl.split("/revision")[0]; // Removing the revision part from the URL
+
+    const charInfo = document.querySelector("#selected-character-modal-info");
+    charInfo.innerHTML = `
+    <p>Name: ${characterData.name}</p>
+    <p>Alias: ${characterData.alias}</p>
+    <p>Age: ${characterData.age}</p>
+    <p>Status: ${characterData.status}</p>
+    <p>Occupation: ${characterData.occupation}</p>
+    <p>Roles: ${characterData.roles}</p>
+    <p>First Episode: ${characterData.episodes[0]}</p>
+    <img src="${imgUrl}" alt="${characterData.name} Image" style="width: 100%; height: auto; border-radius: 8px;">
+  `;
 
     let modal = document.querySelector("#selected-character-modal");
     modal.showModal();
