@@ -9,14 +9,14 @@ body {
 
 /* Rotten Tomatoes section (top right corner) */
 #rotten-tomatoes {
-  position: absolute; /* Position it at the top-right of the screen */
-  top: 10px; /* Distance from the top of the page */
-  right: 10px; /* Distance from the right side */
-  display: flex; /* Use flexbox for alignment */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
   align-items: center; /* Align items vertically at the center */
   gap: 10px; /* Space between Rotten Tomatoes logo and Popcorn Meter */
-  background-color: black; /* Black background for the container */
-  border: 2px solid rgb(186, 61, 61); /* Border around the container with a specific color */
+  background-color: black;
+  border: 2px solid rgb(186, 61, 61);
   padding: 5px;
   border-radius: 5px;
 }
@@ -27,16 +27,16 @@ body {
 }
 
 #rotten-tomatoes span {
-  font-size: 14px; /* Font size for the text inside this section */
-  font-weight: bold; /* Make the text bold */
-  color: white; /* Text color */
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
 }
 
 /* Main Characters Section */
 #main-characters {
   display: flex;
-  justify-content: space-evenly; /* Evenly spaces the items */
-  align-items: center; /* Centers the items vertically */
+  justify-content: space-evenly;
+  align-items: center;
   gap: 40px; /* Adds more space between items */
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .main-character img {
-  width: 320px; /* Increase the default image width */
+  width: 320px;
   height: auto;
   object-fit: cover; /* Ensures the image maintains aspect ratio */
   border-radius: 8px; /* Optional, adds rounded corners */
@@ -56,12 +56,12 @@ body {
   width: 320px; /* Eren's width */
   height: 320px; /* Eren's height */
   object-fit: cover; /* Ensures the image fills the space proportionally */
-  object-position: top center; /* Focuses on the top-center (face) of the image */
-  border-radius: 8px; /* Optional: adds rounded corners */
+  object-position: top center;
+  border-radius: 8px;
 }
 
 .mc-info {
-  display: none; /* Initially hide the character information */
+  display: none;
 }
 
 /* Military Divisions Section */
@@ -70,19 +70,19 @@ body {
   flex-direction: row; /* Align images horizontally for mobile */
   justify-content: center;
   align-items: center;
-  margin: 2rem auto; /* Vertical margin for spacing between sections */
-  gap: 20px; /* Space between images */
+  margin: 2rem auto;
+  gap: 20px;
 }
 
 .military-names {
-  display: flex; /* Use flexbox for layout of military divisions */
-  justify-content: center; /* Align items horizontally */
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
 .military-names img {
-  width: 100px; /* Set image size for mobile */
-  height: 100px; /* Set image size for mobile */
+  width: 100px;
+  height: 100px;
   object-fit: contain; /* Ensure the image scales to fit the box without distortion */
   margin: 10px 0;
 }
@@ -161,11 +161,11 @@ body {
 
 .tab button {
   background-color: inherit; /* Inherit the background color from the parent */
-  float: none; /* Disable floating for mobile */
-  width: 100%; /* Make buttons full-width */
-  border: none; /* Remove border */
-  outline: none; /* Remove the outline */
-  cursor: pointer; /* Change cursor to pointer when hovering over button */
+  float: none;
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
   padding: 14px 16px; /* Padding around the text inside the button */
   text-align: center; /* Center text inside buttons */
   transition: 0.3s; /* Smooth transition on hover or active state */
@@ -185,7 +185,7 @@ body {
 
 /* Tab content styles */
 .tabContent {
-  padding: 6px 12px; /* Padding inside the tab content */
+  padding: 6px 12px;
   border: 1px solid #ccc; /* Border around the content */
   border-top: none; /* Remove the top border */
 }
@@ -255,5 +255,5 @@ body {
   max-width: 500px; /* Limit the max width of the image */
   height: auto; /* Maintain aspect ratio */
   border-radius: 10px; /* Optional: Round corners for the image */
-  margin: 20px 0; /* Add some margin around the image */
+  margin: 20px 0;
 }

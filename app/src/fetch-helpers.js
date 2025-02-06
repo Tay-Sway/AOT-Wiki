@@ -48,7 +48,7 @@ export async function fetchCharactersFromPage(pageNumber) {
 }
 
 // Fetches a specific episode by its episode number
-// api.js
+
 export const fetchEpisode = async (episodeId) => {
   const episodeUrl = `https://api.attackontitanapi.com/episodes/${episodeId}`;
   try {
@@ -95,7 +95,7 @@ export const militaryImgs = async () => {
   }
 };
 
-// Fetches images for main characters (for example, Eren, Mikasa, Armin)
+// Fetches images for main characters
 export const mainCharactersImg = async () => {
   try {
     // Fetch data for main characters' images (from page 10 in this case)
@@ -129,7 +129,6 @@ export const fetchAllCharacters = async () => {
   }
 };
 
-// The search function to find characters by name
 export const searchCharacterName = async (name) => {
   try {
     // Fetch all characters to search through
@@ -153,7 +152,6 @@ export const searchCharacterName = async (name) => {
   }
 };
 
-// Fetches characters for a specific page for listing purposes
 export const characterListPage = async (pageNumber) => {
   try {
     // Fetch data for a specific page of characters

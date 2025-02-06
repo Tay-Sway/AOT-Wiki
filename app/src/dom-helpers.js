@@ -38,7 +38,7 @@ export const militaryPoliceImg = () => {
   mpImg.src = fixedUrl;
 };
 
-// Functions to display images of main characters (Eren, Mikasa, Armin)
+// Functions to display images of main characters
 // const mainCharacters = await fullAotCharactersList();
 // const lastMain = await mainCharactersImg();
 
@@ -76,12 +76,11 @@ document
         event.target.dataset.characterId
       );
 
-      // Log the character data to check if img URL is present
       console.log("Character Data:", characterData);
 
       // Clean up the image URL
-      let imgUrl = characterData.img || "https://via.placeholder.com/150"; // Use a placeholder if img is not found
-      imgUrl = imgUrl.split("/revision")[0]; // Removing the revision part from the URL
+      let imgUrl = characterData.img || "https://via.placeholder.com/150";
+      imgUrl = imgUrl.split("/revision")[0];
 
       const charInfo = document.querySelector("#selected-character-modal-info");
 
@@ -104,7 +103,7 @@ document
         const episodeUrl = characterData.episodes[0]; // Assuming this is a full URL
         let episodeName = "N/A"; // Default value if no episode data is found
 
-        console.log("Episode URL:", episodeUrl); // Log the episode URL
+        console.log("Episode URL:", episodeUrl);
 
         if (episodeUrl) {
           const episodeData = await fetchEpisode(episodeUrl); // Use the full URL directly
@@ -128,17 +127,13 @@ document
         console.error("No character data available.");
       }
 
-      // Open the modal
       const modal = document.querySelector("#selected-character-modal");
       modal.showModal();
     } catch (error) {
       console.error("Error fetching character data:", error);
     }
   });
-// Event listener for Military Branches button
-// Function to handle button click and show modal
 
-// Search event listener
 export const handleSearch = () => {
   const searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", async (event) => {
@@ -225,7 +220,6 @@ export const openTabs = (event) => {
   event.currentTarget.className += " active";
 };
 
-// Event listeners for opening the tabs
 const tabButtons = document.querySelectorAll("button.tabLinks");
 tabButtons.forEach((button) => {
   button.addEventListener("click", openTabs);
@@ -317,7 +311,6 @@ document
         return; // Exit if the ID is not recognized
     }
 
-    // Update the modal content
     const modalContent = document.querySelector(
       "#selected-character-modal-info"
     );
@@ -332,7 +325,6 @@ document
       )}</p>
     `;
 
-    // Show the modal
     const modal = document.querySelector("#selected-character-modal");
     modal.showModal();
   });
